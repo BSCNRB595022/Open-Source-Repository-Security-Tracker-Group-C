@@ -18,34 +18,106 @@ The participants of this project are:
 - BSCNRB591520
 - BSCNRB595022
 
-## Features
+## Installation
 
-The main features of this project are:
+This documentation provides step-by-step instructions for installing and running the project. The project is a Flask-based web application for managing user accounts and reporting issues. It uses SQLite as its database.
 
-- A web interface that allows users to enter the URL of an open-source repository on GitHub and view its security status.
-- A database that stores the information about the security vulnerabilities of different repositories, such as the type, severity, and date of discovery.
+## Prerequisites
 
-## Technologies
+Before you begin, ensure you have the following prerequisites:
 
-The technologies used for this project are:
+- Python 3.7 or higher installed
+- Pip (Python package manager)
+- A terminal or command prompt
+- A web browser
 
-- Python as the programming language
-- Flask as the web framework
-- SQLite as the database
-- Requests as the library for HTTP requests
-- BeautifulSoup as the library for HTML parsing
+## Installation
 
-## Installation and Usage
+1. **Clone the Repository**: Start by cloning the project repository to your local machine. You can do this by running the following command:
 
-To install and run this project, follow these steps:
+    ```bash
+    git clone https://github.com/redscorpionx/Open-Source-Repository-Security-Tracker-Group-C.git
+    ```
 
-1. Clone this repository to your local machine using `git clone https://github.com/redscorpionx/Open-Source-Repository-Security-Tracker-Group-C`
-2. Navigate to the project directory using `cd Open-Source-Repository-Security-Tracker-Group-C`
-3. Install the required dependencies using `pip install -r requirements.txt`
-4. Run the web app using `python app.py`
-5. Open your browser and go to [http://localhost:5000](http://localhost:5000) to access the web interface
-6. Enter the URL of an open-source repository on GitHub and click on "Check Security" to view its security status
+2. **Navigate to Project Directory**: Change your current working directory to the project folder:
 
-## License
+    ```bash
+    cd Open-Source-Repository-Security-Tracker-Group-C
+    ```
 
-This project is licensed under the MIT License - see the [LICENSE](The Unlicense) file for details.
+3. **Create a Virtual Environment (Optional but Recommended)**: It's a good practice to create a virtual environment to isolate project dependencies. You can create one using the following command:
+
+    ```bash
+    python -m venv venv
+    ```
+
+4. **Activate the Virtual Environment**: Activate the virtual environment:
+
+    - On Windows:
+
+    ```bash
+    venv\Scripts\activate
+    ```
+
+    - On macOS and Linux:
+
+    ```bash
+    source venv/bin/activate
+    ```
+
+5. **Install Dependencies**: Install the project's Python dependencies using pip:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Running the Application
+
+Now that you've installed the project, you can run the application.
+
+1. **Initialize the Database**: Before running the application, you need to create the database tables. Run the following command to do this:
+
+    ```bash
+    python database.py
+    ```
+
+2. **Start the Application**: To start the Flask application, run the following command:
+
+    ```bash
+    python app.py
+    ```
+
+3. **Access the Application**: Open your web browser and go to `http://localhost:5000`. You should see the application's home page.
+
+## Usage
+
+The project consists of several routes that you can access via the web interface:
+
+- `/`: Home page with options to login or register.
+- `/login`: Login page for existing users.
+- `/register`: Registration page for new users.
+- `/dashboard`: Dashboard displaying a list of reported issues.
+- `/report_issue`: Route for reporting new issues.
+- `/get_filtered_issues`: A JSON endpoint to retrieve filtered issues.
+
+## Clearing the Database
+
+If you need to clear the database for testing or other purposes, you can use the `cleardb.py` script:
+
+```bash
+python cleardb.py
+```
+
+This will remove all data from the `users` and `issues` tables in the database.
+
+## Project Structure
+
+The project contains two main directories:
+
+- **static**: This directory contains static files such as CSS and JavaScript used for styling and functionality in the web application.
+
+- **templates**: This directory contains HTML templates for different pages of the application.
+
+## Conclusion
+
+You've successfully installed and run the project. You can now register, log in, report issues, and view the dashboard. Feel free to explore and use the web application as needed. If you encounter any issues, create an issue in the issue tab.
