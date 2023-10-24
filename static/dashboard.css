@@ -1,0 +1,135 @@
+/* this is the css file for the dashboard page, it does not affect the login page, registration page, or the home page. */
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Report an Issue section styling */
+#report-issue {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#report-issue h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#report-issue-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#report-issue-form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#report-issue-form input,
+#report-issue-form select,
+#report-issue-form textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#report-issue-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Filter and Search Options styling */
+.filter-section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-section label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.filter-section select,
+.filter-section input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#apply-filters {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* List of Security Issues styling */
+#issue-list {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+table th {
+    background-color: #333;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+/* Style the footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #ffffff;
+}
