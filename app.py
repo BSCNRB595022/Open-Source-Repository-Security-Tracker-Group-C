@@ -105,12 +105,18 @@ def report_issue():
         connection.commit()
         connection.close()
 
+        # Debug: Check if the issue was added to the database
+        print("Issue added to the database")
+
         # Fetch the updated list of issues
         connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM issues")
         issues = cursor.fetchall()
         connection.close()
+
+        # Debug: Check if the list of issues is retrieved correctly
+        print("List of issues retrieved:", issues)
 
         # Redirect back to the dashboard with the updated issues
         return render_template("dashboard.html", issues=issues)
@@ -124,6 +130,10 @@ def get_filtered_issues():
         severity = request.json.get("severity")
         sort_by = request.json.get("sort")
         search = request.json.get("search")
+
+        print("Severity:", severity)
+        print("Sort By:", sort_by)
+        print("Search:", search)
 
         connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
@@ -140,9 +150,13 @@ def get_filtered_issues():
         elif sort_by == "date":
             query += " ORDER BY id DESC"
 
+        print("Query:", query)
+
         cursor.execute(query)
         issues = cursor.fetchall()
         connection.close()
+
+        print("Filtered Issues:", issues)
 
         # Return filtered issues as JSON data
         return jsonify(issues=issues)

@@ -12,14 +12,18 @@ applyFilters.addEventListener('click', () => {
     const sortByValue = sortBy.value;
     const searchValue = searchBar.value.toLowerCase();
 
-    // Create a data object to send to the server
+    console.log("Severity:", severityValue);
+    console.log("Sort By:", sortByValue);
+    console.log("Search:", searchValue);
+
     const data = {
         severity: severityValue,
         sort: sortByValue,
         search: searchValue,
     };
 
-    // Send a POST request to the server with the data
+    console.log("Data to Send:", data);
+
     fetch('/get_filtered_issues', {
         method: 'POST',
         headers: {
@@ -29,19 +33,32 @@ applyFilters.addEventListener('click', () => {
     })
         .then(response => response.json())
         .then(data => {
-            // Clear the table
+            console.log("Data Received:", data);
+
             tableBody.innerHTML = '';
 
-            // Populate the table with filtered issues
             data.issues.forEach(issue => {
                 const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${issue.title}</td>
-                    <td>${issue.description}</td>
-                    <td>${issue.severity}</td>
-                    <td>${issue.source}</td>
-                `;
+
+                const titleCell = document.createElement('td');
+                titleCell.innerText = issue[1]; // Access the title by index
+                row.appendChild(titleCell);
+
+                const descriptionCell = document.createElement('td');
+                descriptionCell.innerText = issue[2]; // Access the description by index
+                row.appendChild(descriptionCell);
+
+                const severityCell = document.createElement('td');
+                severityCell.innerText = issue[3]; // Access the severity by index
+                row.appendChild(severityCell);
+
+                const sourceCell = document.createElement('td');
+                sourceCell.innerText = issue[4]; // Access the source by index
+                row.appendChild(sourceCell);
+
                 tableBody.appendChild(row);
             });
+
+
         });
 });
