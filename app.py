@@ -32,6 +32,7 @@ def home():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    message = None  # Initialize message variable
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -45,12 +46,17 @@ def login():
         if user:
             # Redirect to the dashboard page on successful login
             return redirect(url_for("dashboard", username=username))
-        return "Login failed. Please check your username and password."
-    return render_template("login.html")
+        else:
+            message = "Incorrect credentials. Please check your username and password."
+
+    return render_template(
+        "login.html", message=message
+    )  # Pass the message to the template
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    message = None  # Initialize message variable
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -64,17 +70,20 @@ def register():
 
         if existing_user:
             connection.close()
-            return "Registration failed. This username is already in use."
+            message = "Registration failed. This username is already in use."
+        else:
+            cursor.execute(
+                "INSERT INTO users (username, password) VALUES (?, ?)",
+                (username, password),
+            )
+            connection.commit()
+            connection.close()
 
-        cursor.execute(
-            "INSERT INTO users (username, password) VALUES (?, ?)", (username, password)
-        )
-        connection.commit()
-        connection.close()
+            return redirect(url_for("login"))
 
-        return redirect(url_for("login"))
-
-    return render_template("register.html")
+    return render_template(
+        "register.html", message=message
+    )  # Pass the message to the template
 
 
 @app.route("/dashboard")

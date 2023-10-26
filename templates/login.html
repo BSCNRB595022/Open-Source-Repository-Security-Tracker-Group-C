@@ -16,7 +16,6 @@
 
     <div class="login-container">
         <h1>LOGIN FOR EXISTING USERS</h1>
-
         <form method="POST" action="/login">
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -26,13 +25,18 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            <div class="alert">
+                {% if message %}
+                {{ message }}
+                {% endif %}
+            </div>
             <button type="submit" class="btn-login">Sign In</button>
         </form>
-
         <div class="register-link">
             <p>Don't have an account yet? <a href="/register">Sign Up</a></p>
         </div>
     </div>
+
 
     <section id="features">
         <h2>Key Features</h2>
