@@ -1,108 +1,114 @@
-/* this is the css file for the dashboard page, it does not affect the login page, registration page, or the home page. */
-
-/* Reset some default styles */
-* {
+/* Reset default margin and padding */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+form,
+input,
+textarea,
+button {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* Basic page styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
 .header {
     background-color: #333;
-    color: #fff;
+    color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px 0;
+    box-shadow: 0 4px 6px -6px #222;
 }
 
-/* Report an Issue section styling */
+.header h1 {
+    margin: 0;
+    font-weight: 400;
+}
+
 #report-issue {
-    background-color: #fff;
-    padding: 20px;
     margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 30px;
 }
 
-#report-issue h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#report-issue-form {
+form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-#report-issue-form label {
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-#report-issue-form input,
-#report-issue-form select,
-#report-issue-form textarea {
+label {
     margin-top: 5px;
-    padding: 10px;
+    font-weight: 500;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
 }
 
-#report-issue-form button {
-    background-color: #333;
-    color: #fff;
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #666;
+}
+
+button {
+    padding: 12px 20px;
     border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #333;
+    color: white;
     cursor: pointer;
-    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-/* Filter and Search Options styling */
+button:hover {
+    background-color: #1a1a1a;
+}
+
 .filter-section {
-    background-color: #fff;
-    padding: 20px;
     margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px;
 }
 
-.filter-section label {
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.filter-section select,
-.filter-section input {
+.filter-section select {
     padding: 10px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-#apply-filters {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* List of Security Issues styling */
 #issue-list {
-    background-color: #fff;
-    padding: 20px;
     margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 table {
@@ -110,26 +116,25 @@ table {
     border-collapse: collapse;
 }
 
-table th,
-table td {
-    padding: 10px;
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ccc;
 }
 
-table th {
-    background-color: #333;
-    color: #fff;
+tfoot {
+    font-style: italic;
+    color: #666;
 }
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-
-/* Style the footer */
 footer {
+    background-color: #333;
+    color: white;
     text-align: center;
     padding: 10px 0;
-    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
 }
