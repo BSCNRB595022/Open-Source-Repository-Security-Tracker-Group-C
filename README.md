@@ -120,4 +120,4 @@ The project contains two main directories:
 
 ## Conclusion
 
-You've successfully installed and run the project. You can now register, log in, report issues, and view the dashboard. Feel free to explore and use the web application as needed. If you encounter any issues, create an issue in the issue tab.
+You've successfully installed and run the project. You can now register, log in, report issues, and view the dashboard. Feel free to explore and use the web application as needed. If you encounter any issues, create an issue in the issue tab..
