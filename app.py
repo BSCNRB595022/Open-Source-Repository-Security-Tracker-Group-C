@@ -69,6 +69,7 @@ def register():
         existing_user = cursor.fetchone()
 
         if existing_user:
+            # print the username stored in the database
             connection.close()
             message = "Registration failed. This username is already in use."
         else:
@@ -81,9 +82,7 @@ def register():
 
             return redirect(url_for("login"))
 
-    return render_template(
-        "register.html", message=message
-    )  # Pass the message to the template
+    return render_template("register.html", message=message)
 
 
 @app.route("/dashboard")
