@@ -36,7 +36,7 @@ Before you begin, ensure you have the following prerequisites:
 1. **Clone the Repository**: Start by cloning the project repository to your local machine. You can do this by running the following command:
 
     ```bash
-    git clone https://github.com/redscorpionx/Open-Source-Repository-Security-Tracker-Group-C.git -b collaboration_and_testing
+    git clone https://github.com/redscorpionx/Open-Source-Repository-Security-Tracker-Group-C.git
     ```
 
 2. **Navigate to Project Directory**: Change your current working directory to the project folder:
