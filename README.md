@@ -98,17 +98,17 @@ The project consists of several routes that you can access via the web interface
 - `/register`: Registration page for new users.
 - `/dashboard`: Dashboard displaying a list of reported issues.
 - `/report_issue`: Route for reporting new issues.
-- `/get_filtered_issues`: A JSON endpoint to retrieve filtered issues.
 
 ## Clearing the Database
 
-If you need to clear the database for testing or other purposes, you can use the `cleardb.py` script:
+If you need to clear the database for testing or other purposes, you can use the 2 scripts provided:
 
 ```bash
-python cleardb.py
+reset_issue_table_db.py
 ```
-
-This will remove all data from the `users` and `issues` tables in the database.
+```bash
+reset_issue_table_db.py
+```
 
 ## Project Structure
 
