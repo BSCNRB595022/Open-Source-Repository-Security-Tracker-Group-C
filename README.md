@@ -117,7 +117,3 @@ The project contains two main directories:
 - **static**: This directory contains static files such as CSS and JavaScript used for styling and functionality in the web application.
 
 - **templates**: This directory contains HTML templates for different pages of the application.
-
-## Conclusion
-
-You've successfully installed and run the project. You can now register, log in, report issues, and view the dashboard. Feel free to explore and use the web application as needed. If you encounter any issues, create an issue in the issue tab.
