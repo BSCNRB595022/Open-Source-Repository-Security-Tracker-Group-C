@@ -1,5 +1,9 @@
 # Open-Source Repository Security Tracker
 
+# Azure Deployment
+
+The website is hosted on azure. The link can be found here: https://groupc.azurewebsites.net
+
 ## Project Description
 
 This project is a software engineering assignment for the course BSC3106: Software Engineering 2 at St. Paul's University. The aim of this project is to develop a tool that can track the security issues of open-source repositories on GitHub.
