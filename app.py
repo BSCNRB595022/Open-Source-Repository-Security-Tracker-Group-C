@@ -102,10 +102,10 @@ def register():
 
 
     
-@app.route('/login')
+# Route for handling logins
+@app.route('/login', methods=['POST'])
 def login():
-    return render_template('login.html')
-
+        return redirect(url_for('login'))
 
 
 

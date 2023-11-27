@@ -1,0 +1,544 @@
+Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\app.py", line 111, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2306, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2188, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.username
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password AS user_password 
+FROM user 
+WHERE user.username IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\app.py", line 111, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2306, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2188, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.username
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password AS user_password 
+FROM user 
+WHERE user.username IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\app.py", line 111, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2306, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2188, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.username
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password AS user_password 
+FROM user 
+WHERE user.username IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\app.py", line 111, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2306, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2188, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.username
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password AS user_password 
+FROM user 
+WHERE user.username IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\app.py", line 111, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2306, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2188, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.username
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password AS user_password 
+FROM user 
+WHERE user.username IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\app.py", line 111, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2306, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2188, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.username
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password AS user_password 
+FROM user 
+WHERE user.username IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\app.py", line 119, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2306, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2188, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.username
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password AS user_password 
+FROM user 
+WHERE user.username IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\app.py", line 119, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2748, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2306, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2188, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\OLD Files\Studies\Spu\Sep - Dec 2023\BCS 3106-Software Engineering II\Open-Source-Repository-Security-Tracker-Group-C\venv\Lib\site-packages\sqlalchemy\engine\default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: user.username
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password AS user_password 
+FROM user 
+WHERE user.username IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)

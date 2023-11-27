@@ -26,7 +26,7 @@ body {
 }
 
 header {
-    background: #4e6bff;
+    background: #565c79;
     padding: 20px;
     color: #fff;
     text-align: center;
@@ -180,4 +180,45 @@ input[type="file"] {
     text-overflow: ellipsis;
 }
 
-/* ... (your existing styles) ... */
+.float-left {
+    float: left;
+    margin-right: 20px; /* Adjust the margin as needed */
+    margin-left: 12px;
+}
+
+/* Add this CSS to your existing stylesheet or create a new one */
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #888383;
+}
+
+th {
+    background-color: rgb(33, 31, 21)6)0, 0);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
