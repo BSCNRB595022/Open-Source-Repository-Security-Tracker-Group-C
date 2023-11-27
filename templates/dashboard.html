@@ -27,16 +27,6 @@
             <label for="issue-source">Source URL:</label>
             <input type="url" id="issue-source" name="source" required>
 
-            <label for="file-drop-area" class="file-drop-label">
-                <p>Drag and drop files here or click to select files</p>
-                <input type="file" id="issue-file" name="file" accept=".pdf, .doc, .docx">
-            </label>
-
-            <div id="file-list-container">
-                <p>Uploaded Files:</p>
-                <ul id="file-list"></ul>
-            </div>
-
             <button type="submit">Submit Issue</button>
         </form>
     </section>
@@ -68,23 +58,18 @@
     </footer>
 
     <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
-</body>
-
-</html>
-
     <!-- Add your JavaScript for filtering, sorting, and showing issue details here-->
-    <!-- In your HTML file -->
-<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('report-issue-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      scanSource();
-    });
-  });
-</script>
-
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const reportIssueForm = document.getElementById('report-issue-form');
+            if (reportIssueForm) {
+                reportIssueForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    scanSource();
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
