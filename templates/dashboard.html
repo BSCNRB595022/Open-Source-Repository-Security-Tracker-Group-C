@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Issue Tracker</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,20 +28,16 @@
         </div>
     </nav>
 
-    <!--header>
-        <h1>Issue Tracker Dashboard</h1>
-    </header -->
-
     <section id="report-issue" class="float-left">
         <h2 class="text-capitalize text-success-emphasis">Report Issue</h2>
         <div id="virustotal-result"></div>
-        <form id="report-issue-form" action="/dashboard" method="post" enctype="multipart/form-data">
+        <form id="report-issue-form" enctype="multipart/form-data">
             <label for="issue-title">Title (max 20 characters):</label>
             <input type="text" id="issue-title" name="title" required maxlength="20">
-    
+
             <label for="issue-description">Description (max 20 characters):</label>
             <textarea id="issue-description" name="description" rows="4" required maxlength="20"></textarea>
-    
+
             <label for="issue-source">Source URL:</label>
             <input type="url" id="issue-source" name="source" required>
 
@@ -55,56 +51,36 @@
                 <ul id="file-list"></ul>
             </div>
 
-            <button type="submit">Submit Issue</button>
+            <button type="button" onclick="submitIssue()" class="btn btn-primary">Submit Issue</button>
         </form>
     </section>
 
-    
+  <!-- Update the 'all-issues' section in your HTML file -->
+<section id="all-issues">
+    <h2 class="text-success">Uploaded Issues</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Source</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="issue-table-body">
+            <!-- Issues will be dynamically added here -->
+        </tbody>
+    </table>
+</section>
 
-    <section id="all-issues">
-        <h2 class="text-success">Uploaded Issues</h2>
-        <table style="height: 100px;">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Source</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for issue in issues %}
-                <tr>
-                    <td>{{ issue.title }}</td>
-                    <td>{{ issue.description }}</td>
-                    <td>{{ issue.source }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </section>
 
-    <footer>
-        <p>2023 &copy; Group C - Issue Tracker.</p>
-    </footer>
+
+ 
 
     <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
-</body>
-
-</html>
-
-    <!-- Add your JavaScript for filtering, sorting, and showing issue details here-->
-    <!-- In your HTML file -->
-<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('report-issue-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      scanSource();
-    });
-  });
-</script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
