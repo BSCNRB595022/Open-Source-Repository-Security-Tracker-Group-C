@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Applight Template By W3 Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container"> <a class="navbar-brand navbar-logo" href="#"> <img src="static/images/logo.png" alt="logo"
+          class="logo-1"> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
+          class="fas fa-bars"></span> </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="" data-scroll-nav="0">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#about" data-scroll-nav="1">About</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#feature" data-scroll-nav="2">Features</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#team" data-scroll-nav="3">Team</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#contact" data-scroll-nav="4">Contact</a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-------Banner------->
+  <section class="banner" data-scroll-index='0'>
+    <div class="banner-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-12">
+            <div class="banner-text">
+              <h2 class="white">Open Source Repository Tracker</h2>
+              <p class="banner-text white">Welcome to Open Source Repository Tracker, your go-to hub for real-time
+                open-source repository tracking and security insights. Open Source Repository Tracker provides a
+                seamless blend of repository monitoring and robust security analytics, empowering developers and
+                security professionals to make informed decisions.</p>
+              <ul>
+                <li><a href="#"><button id="btnA1B2C3" class="btnClassX1Y2Z3">Start Tracking An Issue</button></a></li>
+              </ul>
+              <!-- The Modal -->
+              <div id="modalX1Y2Z3" class="modalClassA1B2C3">
+                <div class="modalContentClassD4E5F6">
+                  <span class="closeClassU7V8W9">×</span>
+                  <h2 id="modalTitle">Sign In</h2>
+                  <form id="authForm">
+                    <label for="email" style="color: white;">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="pwd" style="color: white;">Password:</label><br>
+                    <input type="password" id="pwd" name="pwd" required>
+                    <button type="button" id="submitBtn">Submit</button>
+                  </form>
+                  <p id="switchAction" style="color: white;">Don't have an account? <a href="#" id="switchLink">Sign
+                      Up</a></p>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12"> <img src="static/images/iphone-screen.png" alt="iPhone Screen"
+              style="border-radius: 10px;" class="img-fluid wow fadeInUp" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="svg-wave"> <img class="svg-hero" src="static/images/applight-wave.svg" alt="applight wave"></span>
+  </section>
+
+  <!-------About------->
+
+  <section class="about section-padding prelative" data-scroll-index='1'>
+    <div class=" container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="sectioner-header text-center">
+            <h3>About</h3>
+            <span class="line"></span>
+            <p>Our platform seamlessly integrates essential functionalities to enhance your
+              projectmanagement and security efforts.</p>
+          </div>
+          <div class="section-content text-center">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="icon-box wow fadeInUp" data-wow-delay="0.2s"> <i class="fa fa-life-ring"
+                    aria-hidden="true"></i>
+                  <h5>Repository Monitoring</h5>
+                  <p>
+                    Continuously track repository activity, including code commits, pull requests, and contributor
+                    changes, to gain a
+                    holistic understanding of your project's development lifecycle.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="icon-box wow fadeInUp" data-wow-delay="0.4s"> <i class="fa fa-mobile"
+                    aria-hidden="true"></i>
+                  <h5>Vulnerability Detection</h5>
+                  <p>
+                    Leverage powerful static and dynamic analysis tools to identify potential security flaws and
+                    vulnerabilities within your codebase, enabling proactive remediation.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="icon-box wow fadeInUp" data-wow-delay="0.6s"> <i class="fa fa-bolt" aria-hidden="true"></i>
+                  <h5>Security Analytics</h5>
+                  <p>
+                    Uncover meaningful insights from repository data and security scans to assess overall project
+                    security posture and identify trends that may indicate potential risks.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-------Features------->
+  <section class="feature section-padding" data-scroll-index='2'>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="sectioner-header text-center">
+            <h3>Features</h3>
+            <span class="line"></span>
+            <p>Our app offers alot of features that benefit the client. here are some of the features our platform
+              offers</p>
+          </div>
+          <div class="section-content text-center">
+            <div class="row">
+              <div class="col-md-4 col-sm-12">
+                <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
+                  <div class="media-body text-right media-right-margin">
+                    <h5>Real-time Tracking</h5>
+                    <p>The application provides real-time tracking of open-source repositories, keeping users updated
+                      with the latest changes
+                      and updates.</p>
+                  </div>
+                  <div class="media-right icon-border"> <span class="fa fa-bolt" aria-hidden="true"></span> </div>
+                </div>
+                <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
+                  <div class="media-body text-right media-right-margin">
+                    <h5>Security Analytics</h5>
+                    <p>It offers robust security analytics, providing insights into potential security vulnerabilities
+                      and risks in the
+                      repositories.</p>
+                  </div>
+                  <div class="media-right icon-border"> <span class="fa fa-battery-full" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="media-body text-right media-right-margin">
+                    <h5>Repository Monitoring</h5>
+                    <p>The application continuously monitors repositories, alerting users to any significant events or
+                      changes.</p>
+                  </div>
+                  <div class="media-right icon-border"> <span class="fa fa-wifi" aria-hidden="true"></span> </div>
+                </div>
+              </div>
+              <div class="col-md-4 d-none d-md-block d-lg-block">
+                <div class="feature-mobile"> <img src="static/images/iphone-screen-with-shadow.png"
+                    alt="iphone with shadow" class="img-fluid wow fadeInUp" /> </div>
+              </div>
+              <div class="col-md-4 col-sm-12">
+                <div class="media single-feature wow fadeInUp" data-wow-delay="0.2s">
+                  <div class="media-left icon-border media-right-margin"> <span class="fa fa-check-double"
+                      aria-hidden="true"></span> </div>
+                  <div class="media-body text-left">
+                    <h5>Informed Decision Making</h5>
+                    <p>By providing comprehensive data and insights, the application empowers developers and security
+                      professionals to make
+                      informed decisions regarding their projects.</p>
+                  </div>
+                </div>
+                <div class="media single-feature wow fadeInUp" data-wow-delay="0.4s">
+                  <div class="media-left icon-border media-right-margin"> <span class="fa fa-dollar-sign"
+                      aria-hidden="true"></span> </div>
+                  <div class="media-body text-left">
+                    <h5>Integration with existing Tools</h5>
+                    <p>The application could potentially integrate with existing development and security tools,
+                      providing a seamless user
+                      experience.</p>
+                  </div>
+                </div>
+                <div class="media single-feature wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="media-left icon-border media-right-margin"> <span class="fa fa-hdd"
+                      aria-hidden="true"></span> </div>
+                  <div class="media-body text-left">
+                    <h5>User-friendly Interface</h5>
+                    <p>The application has a user-friendly interface, making it easy for users to navigate and find the
+                      information they need.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-------Team------->
+  <section class="team section-padding" data-scroll-index='3'>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="sectioner-header text-center">
+            <h3>Our Team</h3>
+            <span class="line"></span>
+            <p>This project was made with passion by 5 computer science students at the university of St. Paul's
+              University</p>
+          </div>
+          <div class="section-content text-center">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="team-detail wow bounce" data-wow-delay="0.2s"> <img src="static/images/bscnrb595022.png"
+                    alt="Bscnrb595022" class="img-fluid" />
+                  <h4>Abdisalam</h4>
+                  <p>BSCNRB595022</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="team-detail wow bounce" data-wow-delay="0.6s"> <img src="static/images/BSCNRB443722.jpg"
+                    alt="BSCNRB443722" class="img-fluid" />
+                  <h4>Elizabeth</h4>
+                  <p>BSCNRB443722</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="team-detail wow bounce" data-wow-delay="0.8s"> <img src="static/images/bscnrb548222.jpg"
+                    alt="bscnrb548222" class="img-fluid" />
+                  <h4>Tek</h4>
+                  <p>bscnrb548222</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="team-detail wow bounce" data-wow-delay="0.4s"> <img src="static/images/user3.jpg"
+                    alt="BSCNRB595022" class="img-fluid" />
+                  <h4>Eric</h4>
+                  <p>BSCNRB595022</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="team-detail wow bounce" data-wow-delay="1.0s"> <img src="static/images/user3.jpg"
+                    alt="BSCNRB587922" class="img-fluid" />
+                  <h4>Chris</h4>
+                  <p>BSCNRB587922</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-------Contact------->
+  <section class="contact section-padding" data-scroll-index='4'>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="sectioner-header text-center">
+            <h3>Contact us</h3>
+            <span class="line"></span>
+            <p>Get in touch with the team behind OPEN SOURCE REPOSITORY TRACKER. You can find our contact details below
+            </p>
+          </div>
+          <div class="section-content">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-8">
+                <form id="contact_form" action="/contact" method="post">
+                  <div class="row">
+                    <div class="col">
+                      <input type="text" id="your_name" class="form-input w-100" name="full-name"
+                        placeholder="Full Name" required>
+                    </div>
+                    <div class="col">
+                      <input type="email" id="email" class="form-input w-100" name="email" placeholder="Email" required>
+                    </div>
+                  </div>
+                  <input type="text" id="subject" class="form-input w-100" name="subject" placeholder="Subject">
+                  <textarea class="form-input w-100" id="message" placeholder="Message" name="message"></textarea>
+                  <button class="btn-grad w-100 text-uppercase" type="submit" name="button">submit</button>
+                </form>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="contact-info white">
+                  <div class="contact-item media"> <i class="fa fa-map-marker-alt media-left media-right-margin"></i>
+                    <div class="media-body">
+                      <p class="text-uppercase">Address</p>
+                      <p class="text-uppercase">Nairobi, Kenya</p>
+                    </div>
+                  </div>
+                  <div class="contact-item media"> <i class="fa fa-mobile media-left media-right-margin"></i>
+                    <div class="media-body">
+                      <p class="text-uppercase">Phone</p>
+                      <p class="text-uppercase"><a class="text-white" href="tel:+15173977100">+254718920243</a> </p>
+                    </div>
+                  </div>
+                  <div class="contact-item media"> <i class="fa fa-envelope media-left media-right-margin"></i>
+                    <div class="media-body">
+                      <p class="text-uppercase">E-mail</p>
+                      <p class="text-uppercase"><a class="text-white"
+                          href="mailto:abcdefg@gmail.com">bscnrb595022@spu.ac.ke</a> </p>
+                    </div>
+                  </div>
+                  <div class="contact-item media"> <i class="fa fa-clock media-left media-right-margin"></i>
+                    <div class="media-body">
+                      <p class="text-uppercase">Working Hours</p>
+                      <p class="text-uppercase">Mon-Fri 9.00 AM to 5.00PM.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-copy">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <p>2023 &copy; Group C Open Source Repository Tracker.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <!-- scrollIt js -->/
+  <script src="{{ url_for('static', filename='/js/scrollIt.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/js/wow.min.js') }}"></script>
+
+  <script src="/static/js/scrollIt.min.js"></script>
+  <script src="/static/js/wow.min.js"></script>
+  <script>
+    var wow = new WOW();
+    wow.init();
+    $(document).ready(function (e) {
+
+      $('.slider').bxSlider({
+        pager: false
+      });
+      var signUpMode = false;
+
+      document.getElementById('submitBtn').addEventListener('click', function () {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('pwd').value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', signUpMode ? '/signup' : '/signin');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+          var response = JSON.parse(xhr.responseText);
+          alert(response.message);
+
+          if (response.message === 'Login successful' || response.message === 'Signup successful') {
+            window.location.href = '/dashboard';
+          }
+        };
+        xhr.send('email=' + email + '&pwd=' + password);
+      });
+
+      document.getElementById('btnA1B2C3').addEventListener('click', function () {
+        signUpMode = false;
+        document.getElementById('modalX1Y2Z3').style.display = 'block';
+      });
+
+      document.getElementById('switchLink').addEventListener('click', function (e) {
+        e.preventDefault();
+        signUpMode = !signUpMode;
+        document.getElementById('modalTitle').innerText = signUpMode ? 'Sign Up' : 'Sign In';
+        document.getElementById('switchAction').innerText = signUpMode ? 'Already have an account? ' : 'Don\'t have an account? ';
+      });
+
+      document.querySelector('.closeClassU7V8W9').addEventListener('click', function () {
+        document.getElementById('modalX1Y2Z3').style.display = 'none';
+      });
+
+      window.addEventListener('click', function (event) {
+        if (event.target === document.getElementById('modalX1Y2Z3')) {
+          document.getElementById('modalX1Y2Z3').style.display = 'none';
+        }
+      });
+    });
+
+
+    $(window).on("scroll", function () {
+
+      var bodyScroll = $(window).scrollTop(),
+        navbar = $(".navbar");
+
+      if (bodyScroll > 50) {
+        $('.navbar-logo img').attr('src', 'static/images/logo-black.png');
+        navbar.addClass("nav-scroll");
+
+      } else {
+        $('.navbar-logo img').attr('src', 'static/images/logo.png');
+        navbar.removeClass("nav-scroll");
+      }
+
+    });
+    $(window).on("load", function () {
+      var bodyScroll = $(window).scrollTop(),
+        navbar = $(".navbar");
+
+      if (bodyScroll > 50) {
+        $('.navbar-logo img').attr('src', 'static/images/logo-black.png');
+        navbar.addClass("nav-scroll");
+      } else {
+        $('.navbar-logo img').attr('src', 'static/images/logo-white.png');
+        navbar.removeClass("nav-scroll");
+      }
+
+      $.scrollIt({
+
+        easing: 'swing',      // the easing function for animation
+        scrollTime: 900,       // how long (in ms) the animation takes
+        activeClass: 'active', // class given to the active nav element
+        onPageChange: null,    // function(pageIndex) that is called when page is changed
+        topOffset: -63
+      });
+    });
+
+  </script>
+</body>
+
+</html>

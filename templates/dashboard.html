@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open-Source Repository Security Tracker Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the Security Tracker Dashboard</h1>
+    </header>
+
+    <section id="report-issue">
+        <h2>Report an Issue</h2>
+        <div id="virustotal-result"></div>
+        <form id="report-issue-form" action="/dashboard" method="post" enctype="multipart/form-data"
+            onsubmit="scanSource()">
+            <label for="issue-title">Title (max 20 characters):</label>
+            <input type="text" id="issue-title" name="title" required maxlength="20">
+
+            <label for="issue-description">Description (max 20 characters):</label>
+            <textarea id="issue-description" name="description" rows="4" required maxlength="20"></textarea>
+
+            <label for="issue-source">Source URL:</label>
+            <input type="url" id="issue-source" name="source" required>
+
+            <label for="file-drop-area" class="file-drop-label">
+                <p>Drag and drop files here or click to select files</p>
+                <input type="file" id="issue-file" name="file" accept=".pdf, .doc, .docx">
+            </label>
+
+            <div id="file-list-container">
+                <p>Uploaded Files:</p>
+                <ul id="file-list"></ul>
+            </div>
+
+            <button type="submit">Submit Issue</button>
+        </form>
+    </section>
+
+    <section id="all-issues">
+        <h2>All Issues</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for issue in issues %}
+                <tr>
+                    <td>{{ issue.title }}</td>
+                    <td>{{ issue.description }}</td>
+                    <td>{{ issue.source }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>2023 &copy; Group C Open Source Repository Tracker.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+
+</html>
+
+    <!-- Add your JavaScript for filtering, sorting, and showing issue details here-->
+    <!-- In your HTML file -->
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('report-issue-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      scanSource();
+    });
+  });
+</script>
+
+
+</body>
+
+</html>
