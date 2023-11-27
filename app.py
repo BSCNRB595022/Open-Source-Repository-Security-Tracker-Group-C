@@ -15,9 +15,12 @@ from flask import (
     send_from_directory,
     url_for,
 )
-from flask_sqlalchemy import SQLAlchemy
+
+from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
@@ -37,9 +40,9 @@ app.logger.addHandler(handler)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
-
+    password = db.Column(db.String(120), nullable=False)
 
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -55,6 +58,8 @@ class Issue(db.Model):
     description = db.Column(db.Text, nullable=False)
     source = db.Column(db.String(120))
 
+# Create the database tables
+# db.create_all()
 
 # Define routes
 @app.route("/")
@@ -62,56 +67,46 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/signup", methods=["POST"])
-def signup():
+@app.route('/register', methods=['POST'])
+def register():
     try:
-        data = request.form
-        email = data["email"]
+        # Get form data
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        confirm_password = request.form['confirmPassword']
 
-        # Check if the email already exists
-        existing_user = User.query.filter_by(email=email).first()
-        if existing_user:
-            return jsonify({"message": "Email already registered"})
+        # Simple validation
+        if not username or not email or not password or not confirm_password:
+            return jsonify({'error': 'All fields are required'}), 400
 
-        # Hash the password
-        password = generate_password_hash(data["pwd"], method="pbkdf2:sha256")
+        if password != confirm_password:
+            return jsonify({'error': 'Passwords do not match'}), 400
+
+        # Check if the username or email is already in use
+        if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
+            return jsonify({'error': 'Username or email already in use'}), 400
 
         # Create a new user
-        new_user = User(email=email, password=password)
-
-        # Add the new user to the database
+        new_user = User(username=username, email=email, password=password)
         db.session.add(new_user)
-        try:
-            db.session.commit()
-        except Exception as e:
-            db.session.rollback()
-            print(f"Error committing to the database: {str(e)}")
-            app.logger.error(f"Error committing to the database: {str(e)}")
-            return jsonify({"message": "Error committing to the database"}), 500
+        db.session.commit()
 
-        return jsonify({"message": "User registered successfully"})
-
+        return jsonify({'message': 'Registration successful'}), 200
+    
     except Exception as e:
-        # Log the error for debugging purposes
-        app.logger.error(f"Error during signup: {str(e)}")
-        return jsonify({"message": "Internal server error"}), 500
+        print(f"Error during registration: {e}")
+        return jsonify({'error': 'Registration failed'}), 500
+    
 
 
-@app.route("/signin", methods=["POST"])
-def signin():
-    data = request.form
-    email = data["email"]
-    password = data["pwd"]
 
-    user = User.query.filter_by(email=email).first()
+    
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
-    if user and check_password_hash(user.password, password):
-        return jsonify({"message": "Login successful"})
-    else:
-        return (
-            jsonify({"message": "Invalid credentials"}),
-            401,
-        )  # 401 indicates unauthorized
+
 
 
 # Add this error handler to return JSON for errors

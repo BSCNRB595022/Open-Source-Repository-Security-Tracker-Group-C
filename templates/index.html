@@ -19,7 +19,7 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
-    <div class="container"> <a class="navbar-brand navbar-logo" href="#"> <img src="static/images/logo.png" alt="logo"
+    <div class="container"> <a class="navbar-brand navbar-logo" > <img src="static/images/logo.png" alt="logo"
           class="logo-1"> </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
@@ -31,6 +31,7 @@
           <li class="nav-item"> <a class="nav-link" href="#feature" data-scroll-nav="2">Features</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#team" data-scroll-nav="3">Team</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#contact" data-scroll-nav="4">Contact</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="login.html" data-scroll-nav="5">Login</a> </li>
         </ul>
       </div>
     </div>
@@ -55,7 +56,7 @@
               <div class="myFormJrehre">
     
                 <!-- Button to trigger the register form -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-primary-white" data-toggle="modal" data-target="#myModal">
                   Let's <span class="text-uppercase">explore</span>
                 </button>
 
@@ -65,7 +66,7 @@
                       <div class="modal-content">
                         <!-- Modal content goes here -->
                         <div class="modal-header">
-                          <h5 class="modal-title text-capitalize" id="myModalLabel">user account create</h5>
+                          <h5 class="modal-title text-capitalize text-center" id="myModalLabel">user account create</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -94,7 +95,7 @@
                               </div>
               
                               <button type="submit" class="btn btn-primary">Register</button> 
-                              <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                             </form>
 
                         </div>
@@ -106,69 +107,54 @@
                   <!--End of form -->
               </div>
 
-
+    <!-- script to handle registration form submission and display sweet alerts -->
+    <script>
+      document.getElementById('registrationForm').addEventListener('submit', function (event) {
+          event.preventDefault();
   
+          // Get form data
+          const formData = new FormData(this);
+  
+          // Submit the form using AJAX
+          fetch(this.action, {
+              method: this.method,
+              body: formData,
+          })
+
+       /**
+        *!     .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Assuming the server returns JSON
+            }) 
+
+       */
 
 
-<!-- script to handle registration form submission and display sweet alerts -->
-<script>
-    document.getElementById('registrationForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        // check if passwords match
-        var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('confirmPassword').value;
-
-        if (password !== confirmPassword) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Password Mismatch',
-                text: 'Passwords do not match. Please re-enter.',
-            });
-            return;
-        }
-
-        // Collect form data
-        var formData = new FormData(this);
-
-        // Send registration data to server (Flask)
-        fetch('/register', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Check if registration was successful
-            if (data.success) {
-                // Show success alert
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Registration Successful',
-                    text: 'You can now log in with your credentials.',
-                });
-
-                // Redirect to login page after successful registration
-                window.location.href = '/login';
-            } else {
-                // Show error alert with server message
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Registration Failed',
-                    text: data.message,
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Error during registration:', error);
-            // Show generic error alert
-            Swal.fire({
-                icon: 'error',
-                title: 'Registration Failed',
-                text: 'An error occurred during registration. Please try again.',
-            });
-        });
-    });
-</script>
+          .then(data => {
+              // Registration successful, show SweetAlert success message
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Registration Successful',
+                  text: 'You have successfully registered!',
+                  showConfirmButton: false,
+                  timer: 2000
+              });
+  
+              // Redirect to the login form after successful registration
+              window.location.href = '/login'; // Update with your login route
+          })
+          .catch(error => {
+              // Registration failed, show SweetAlert error message
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Registration Failed',
+                  text: error.message || 'An unexpected error occurred during registration',
+              });
+          });
+      });
+  </script>
 
 
 
@@ -203,7 +189,7 @@
 
             </div>
           </div>
-          <div class="col-md-4 col-sm-12"> <img src="static/images/iphone-screen.png" alt="iPhone Screen"
+          <div class="col-md-4 col-sm-12"> <img src="static/images/bg-001-yu.jpg" alt="iPhone Screen"
               style="border-radius: 10px;" class="img-fluid wow fadeInUp" />
           </div>
         </div>
