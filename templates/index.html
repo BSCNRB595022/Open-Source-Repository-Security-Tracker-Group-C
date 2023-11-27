@@ -4,6 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Issue Tracker | Group C</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -104,6 +105,70 @@
 
                   <!--End of form -->
               </div>
+
+
+  
+
+
+<!-- script to handle registration form submission and display sweet alerts -->
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // check if passwords match
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Password Mismatch',
+                text: 'Passwords do not match. Please re-enter.',
+            });
+            return;
+        }
+
+        // Collect form data
+        var formData = new FormData(this);
+
+        // Send registration data to server (Flask)
+        fetch('/register', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Check if registration was successful
+            if (data.success) {
+                // Show success alert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration Successful',
+                    text: 'You can now log in with your credentials.',
+                });
+
+                // Redirect to login page after successful registration
+                window.location.href = '/login';
+            } else {
+                // Show error alert with server message
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Registration Failed',
+                    text: data.message,
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error during registration:', error);
+            // Show generic error alert
+            Swal.fire({
+                icon: 'error',
+                title: 'Registration Failed',
+                text: 'An error occurred during registration. Please try again.',
+            });
+        });
+    });
+</script>
 
 
 
