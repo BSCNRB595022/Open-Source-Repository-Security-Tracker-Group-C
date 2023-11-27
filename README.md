@@ -79,40 +79,27 @@ Before you begin, ensure you have the following prerequisites:
 
 Now that you've installed the project, you can run the application.
 
-1. **Initialize the Database**: Before running the application, you need to create the database tables. Run the following command to do this:
-
-    ```bash
-    python database.py
-    ```
-
-2. **Start the Application**: To start the Flask application, run the following command:
+1. **Start the Application**: To start the Flask application, run the following command:
 
     ```bash
     python app.py
     ```
 
-3. **Access the Application**: Open your web browser and go to `http://localhost:5000`. You should see the application's home page.
+2. **Access the Application**: Open your web browser and go to `http://localhost:5000`. You should see the application's home page.
 
 ## Usage
 
 The project consists of several routes that you can access via the web interface:
 
-- `/`: Home page with options to login or register.
-- `/login`: Login page for existing users.
-- `/register`: Registration page for new users.
-- `/dashboard`: Dashboard displaying a list of reported issues.
-- `/report_issue`: Route for reporting new issues.
-
-## Clearing the Database
-
-If you need to clear the database for testing or other purposes, you can use the 2 scripts provided:
-
-```bash
-reset_issue_table_db.py
-```
-```bash
-reset_issue_table_db.py
-```
+- `/`, `\index`: Home page with options to:
+    - login or register.
+    - about page
+    - features
+    - contacts
+- `/dashboard`:. Repo tracking page with options to:
+    - submit an issue url
+    - submit an issue file
+    - scan issues for a virus
 
 ## Project Structure
 
