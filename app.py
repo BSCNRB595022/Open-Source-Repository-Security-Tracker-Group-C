@@ -245,6 +245,11 @@ def submit_issue():
         # Log the error for debugging purposes
         app.logger.error(f"Error submitting issue: {str(e)}")
         return jsonify({"message": "Internal server error"}), 500
+    
+    # Route for handling logout
+@app.route('/logout')
+def logout():
+    return redirect(url_for('login'))
 
 
 if __name__ == "__main__":

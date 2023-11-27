@@ -130,3 +130,10 @@ function renderIssues() {
         issueTableBody.appendChild(row);
     });
 }
+
+
+function logout() {
+    // You can add any client-side logout logic here
+    // For now, let's redirect to the logout route
+    window.location.href = '/logout';
+}
